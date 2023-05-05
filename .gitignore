@@ -1,0 +1,23 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+react/basics/node_modules
+react/basics/.pnp
+react/basics/.pnp.js
+
+# testing
+react/basics/coverage
+
+# production
+react/basics/build
+
+# misc
+react/basics.DS_Store
+react/basics.env.local
+react/basics.env.development.local
+react/basics.env.test.local
+react/basics.env.production.local
+
+react/basicsnpm-debug.log*
+react/basicsyarn-debug.log*
+react/basicsyarn-error.log*
