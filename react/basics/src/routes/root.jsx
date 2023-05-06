@@ -1,7 +1,8 @@
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigation } from "react-router-dom";
 import routeLinks from "../utils/routeLinkConstant";
 
 export default function Root() {
+  const navigation = useNavigation();
   return (
     <>
       <div id="sidebar">
@@ -34,9 +35,18 @@ export default function Root() {
             <ul>
               {routeLinks.map((link) => (
                 <li key={link.id}>
-                  <Link to={link.url}>
+                  <NavLink
+                    to={link.url}
+                    className={({ isActive, isPending }) =>
+                      isActive
+                        ? "active"
+                        : isPending
+                          ? "pending"
+                          : ""
+                    }
+                  >
                     {link.name}
-                  </Link>
+                  </NavLink>
                 </li>
               ))}
             </ul>
