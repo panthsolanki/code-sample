@@ -9,8 +9,13 @@ import Counter from './components/Counter/Counter.js';
 import './index.css';
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import reportWebVitals from './reportWebVitals';
-import Contact from "./routes/contact";
-import ContactRoot, { loader as rootLoader } from "./routes/contactRoot";
+import Contact, {
+  loader as contactLoader,
+} from "./routes/contact";
+import ContactRoot, {
+  action as contactAction,
+  loader as contactRootLoader,
+} from "./routes/contactRoot";
 import Root from "./routes/root";
 
 const router = createBrowserRouter([
@@ -33,11 +38,13 @@ const router = createBrowserRouter([
     path: "/contacts",
     element: <ContactRoot />,
     errorElement: <ErrorPage />,
-    loader: rootLoader,
+    loader: contactRootLoader,
+    action: contactAction,
     children: [
       {
-        path: "/contacts/:contactId",
+        path: "contacts/:contactId",
         element: <Contact />,
+        loader: contactLoader,
       },
     ],
   },
