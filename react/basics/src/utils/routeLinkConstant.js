@@ -10,6 +10,10 @@ const routeLinks = [{
   id: 3,
   name: 'Users',
   url: '/users'
+},{
+  id: 4,
+  name: 'Contacts',
+  url: '/contacts'
 }]
 
 export default routeLinks;
