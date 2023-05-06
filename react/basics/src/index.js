@@ -12,6 +12,9 @@ import reportWebVitals from './reportWebVitals';
 import Contact, {
   loader as contactLoader,
 } from "./routes/contacts/contact";
+import EditContact, {
+  action as editAction,
+} from "./routes/contacts/edit";
 import ContactRoot, {
   action as contactAction,
   loader as contactRootLoader,
@@ -42,9 +45,15 @@ const router = createBrowserRouter([
     action: contactAction,
     children: [
       {
-        path: "contacts/:contactId",
+        path: "/contacts/:contactId",
         element: <Contact />,
         loader: contactLoader,
+      },
+      {
+        path: "/contacts/:contactId/edit",
+        element: <EditContact />,
+        loader: contactLoader,
+        action: editAction,
       },
     ],
   },
