@@ -20,6 +20,7 @@ import ContactRoot, {
   loader as contactRootLoader,
 } from "./routes/contacts/root";
 import Root from "./routes/root";
+import Users from "./routes/users";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
         path: "/counter",
         element: <Counter />,
       },
+      {
+        path: "/users",
+        element: <Users />,
+      }
     ],
   },
   {
