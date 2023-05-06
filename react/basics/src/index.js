@@ -11,11 +11,11 @@ import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import reportWebVitals from './reportWebVitals';
 import Contact, {
   loader as contactLoader,
-} from "./routes/contact";
+} from "./routes/contacts/contact";
 import ContactRoot, {
   action as contactAction,
   loader as contactRootLoader,
-} from "./routes/contactRoot";
+} from "./routes/contacts/root";
 import Root from "./routes/root";
 
 const router = createBrowserRouter([
