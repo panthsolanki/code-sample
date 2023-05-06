@@ -4,8 +4,12 @@ const routeLinks = [{
   url: '/'
 },{
   id: 2,
-  name: 'counter',
+  name: 'Counter',
   url: '/counter'
+},{
+  id: 3,
+  name: 'Users',
+  url: '/users'
 }]
 
 export default routeLinks;
