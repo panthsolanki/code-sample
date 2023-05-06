@@ -4,22 +4,39 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-// import App from './App';
+import App from "./App";
+import Counter from './components/Counter/Counter.js';
 import './index.css';
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import reportWebVitals from './reportWebVitals';
 import Contact from "./routes/contact";
-import Root, { loader as rootLoader } from "./routes/root";
+import ContactRoot, { loader as rootLoader } from "./routes/contactRoot";
+import Root from "./routes/root";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
     errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/",
+        element: <App />,
+      },
+      {
+        path: "/counter",
+        element: <Counter />,
+      },
+    ],
+  },
+  {
+    path: "/contacts",
+    element: <ContactRoot />,
+    errorElement: <ErrorPage />,
     loader: rootLoader,
     children: [
       {
-        path: "contacts/:contactId",
+        path: "/contacts/:contactId",
         element: <Contact />,
       },
     ],
