@@ -1,5 +1,5 @@
 import Header from "../../components/Header/Header";
-import Userslist from "../../components/UsersList/UsersList";
+import UsersList from "../../components/UsersList/UsersList";
 import { useUsers } from "../../hooks/useUsers";
 
 /**
@@ -22,7 +22,7 @@ export default function App() {
         <Header />
       </header>
       <div>
-        <Userslist />
+        <UsersList />
       </div>
     </div>
   );

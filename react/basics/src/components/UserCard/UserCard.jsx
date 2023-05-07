@@ -12,8 +12,9 @@ export default function UserCard({
     <section className={className}>
       <h1>{lastName}</h1>
       <p>{firstName}</p>
-      {!isSelected && <button onClick={onUserClick}>Add</button>}
-      {isSelected && <button onClick={onUserClick}>Remove</button>}
+      <button onClick={onUserClick}>
+        {isSelected ? "Remove" : "Add"}
+      </button>
     </section>
   );
 }
