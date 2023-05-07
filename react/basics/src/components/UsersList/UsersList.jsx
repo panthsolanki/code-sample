@@ -1,10 +1,10 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { useUsers } from "../../hooks/useUsers.js";
 import UserCard from "../UserCard/UserCard";
 import "./UsersList.css";
 
 export default function UserList() {
-  const { users } = useUsers();
+  const { users, query } = useUsers();
   // const [users, setUsers] = useState([]);
   const [activeUserEmails, setActiveUserEmails] = useState([]);
   // function fetchUsers() {
@@ -30,6 +30,16 @@ export default function UserList() {
     [activeUserEmails]
   );
 
+  const filteredUsers = useMemo(() => {
+    return users.filter((user) => {
+      return (
+        user.name.first.toLowerCase().includes(query.toLowerCase()) ||
+        user.name.last.toLowerCase().includes(query.toLowerCase()) ||
+        user.email.toLowerCase().includes(query.toLowerCase())
+      );
+    });
+  }, [users, query]);
+
   // useEffect(() => {
   //   fetchUsers()
   //     .then((res) => res.json())
@@ -39,7 +49,7 @@ export default function UserList() {
   // }, []);
   return (
     <div className="UserList">
-      {users.map((user) => {
+      {filteredUsers.map((user) => {
         return (
           <UserCard
             id={`${user.id.name}_${user.id.value}`}

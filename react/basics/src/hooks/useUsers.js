@@ -10,11 +10,14 @@ function fetchUsers() {
 }
 
 const UsersContext = createContext({
-  users: []
+  users: [],
+  query: "",
+  setQuery: () => {},
 });
 
 export function UsersProvider({ children }) {
   const [users, setUsers] = useState([]);
+  const [query, setQuery] = useState("");
 
   // const users = [
   //   {
@@ -39,7 +42,9 @@ export function UsersProvider({ children }) {
   return (
     <UsersContext.Provider
       value={{
-        users
+        users,
+        query,
+        setQuery,
       }}
     >
       {children}
